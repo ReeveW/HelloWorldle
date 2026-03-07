@@ -114,7 +114,7 @@ std::string Model::guess(std::string guess) {
     s += implementationGuess(guessLanguage.implementation);
     s += parentGuess(guessLanguage.parentLanguage);
     s += memoryGuess(guessLanguage.mem);
-    s += "\033[30m";
+    s += colour("white");
     return s + "\n";
 }
 

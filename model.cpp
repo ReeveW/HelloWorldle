@@ -15,7 +15,7 @@ std::string colour(std::string c){
     }else if(c == "yellow"){
         return "\033[33m";
     }
-    return "\033[37m";
+    return "\033[0m";
 }
 
 std::string Model::yearGuess(int year) {

@@ -22,7 +22,7 @@ struct LanguageData {
     int releaseYear;
     Level level;
     Implementation implementation;
-    std::string parentLanguage;
+    ParentLanguage parentLanguage;
     MemoryManagement mem;
 };
 
@@ -33,9 +33,10 @@ class Model {
         Model();
         ~Model();
         std::string memoryGuess(MemoryManagement mem);
-        std::string parentGuess(std::string p);
+        std::string parentGuess(ParentLanguage p);
         std::string implementationGuess(Implementation i);
         std::string levelGuess(Level level);
         std::string yearGuess(int year);
         std::string guess(std::string language);
+        bool isValidGuess(std::string language);
 };

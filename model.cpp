@@ -32,15 +32,29 @@ std::string Model::levelGuess(Level level){
 }
 
 std::string Model::memoryGuess(MemoryManagement mem) {
-    
+    if(answer.mem == mem){
+        //green
+    }else{
+        //red
+    }
 }
 
-std::string Model::parentGuess(std::string p) {
-    
+std::string Model::parentGuess(ParentLanguage p) {
+    if(answer.parentLanguage == p){
+        //green
+    }else{
+        //red
+    }
 }
 
 std::string Model::implementationGuess(Implementation i) {
-    
+    if(answer.implementation == i){
+        //green
+    }else if(answer.implementation == Implementation::Hybrid){
+        //orange
+    }else{
+        //red
+    }
 }
 
 std::string Model::guess(std::string language) {

@@ -1,26 +1,38 @@
 #include <string>
 #include "model.h"
 
-Model::Model() {
-    // get a random number, and then whatever that number is we use that porgramming language
+Model::Model() {}
+
+std::string colour(std::string c){
+    if(c == "red"){
+        return "\033[31m";
+    }else if(c == "green"){
+        return "\033[32m";
+    }else if(c == "yellow"){
+        return "\033[33m";
+    }
+    return "\033[30m";
 }
 
 std::string Model::yearGuess(int year) {
+    std::string s;
+
     if(answer.releaseYear == year) {
-        // green
+        s += colour("green") + std::to_string(year);
     }else if(answer.releaseYear > year){
         if(answer.releaseYear - 5 > year){
-            //red
+            s += colour("red") + std::to_string(year);
         }else{
-            //yellow
+            s += colour("yellow") + std::to_string(year);
         }
     }else{
         if(answer.releaseYear + 5 < year){
-            // red
+            s += colour("red") + std::to_string(year);
         }else{
-            //yellow
+            s += colour("yellow") + std::to_string(year);
         }
     }
+    return s;
 }
 
 std::string Model::levelGuess(Level level){
@@ -58,9 +70,27 @@ std::string Model::implementationGuess(Implementation i) {
 }
 
 std::string Model::guess(std::string guess) {
-    
+    LanguageData guessLanguage;
+    for(auto l : languages){
+        if(l.name == guess){
+            guessLanguage = l;
+        }
+    }
+    std::string s;
+    s += yearGuess(guessLanguage.releaseYear);
+    s += levelGuess(guessLanguage.level);
+    s += implementationGuess(guessLanguage.implementation);
+    s += parentGuess(guessLanguage.parentLanguage);
+    s += memoryGuess(guessLanguage.mem);
+    s += "\033[30m";
+    return s;
 }
 
 bool Model::isValidGuess(std::string guess){
-    
+    for(auto l : languages){
+        if(l.name == guess){
+            return true;
+        }
+    }
+    return false;
 }

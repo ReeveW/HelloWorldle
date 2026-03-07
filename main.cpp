@@ -3,7 +3,12 @@
 #include "view.h"
 #include "Languages.h"
 
+#include <iostream>
+#include <string>
+
 int main(){
     Model m;
-    m.guess("C++");
+    std::string s = m.guess("C++");
+    std::cout << s << std::endl;
+    return 0;
 }

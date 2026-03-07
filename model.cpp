@@ -49,7 +49,7 @@ std::string Model::levelGuess(Level level){
     }else{
         s = colour("red") + l;
     }
-    return s;
+    return s + "\n";
 }
 
 std::string Model::memoryGuess(MemoryManagement mem) {
@@ -64,7 +64,7 @@ std::string Model::memoryGuess(MemoryManagement mem) {
     }else{
         s = colour("red") + l;
     }
-    return s;
+    return s + "\n";
 }
 
 std::string Model::parentGuess(ParentLanguage p) {
@@ -101,7 +101,7 @@ std::string Model::guess(std::string guess) {
     s += parentGuess(guessLanguage.parentLanguage);
     s += memoryGuess(guessLanguage.mem);
     s += "\033[30m";
-    return s;
+    return s + "\n";
 }
 
 bool Model::isValidGuess(std::string guess){

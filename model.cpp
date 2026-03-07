@@ -113,11 +113,11 @@ std::vector<std::string> Model::guess(std::string guess) {
         }
     }
     std::vector<std::string> v(5);
-    v.push_back(yearGuess(guessLanguage.releaseYear));
-    v.push_back(levelGuess(guessLanguage.level));
-    v.push_back(implementationGuess(guessLanguage.implementation));
-    v.push_back(parentGuess(guessLanguage.parentLanguage));
-    v.push_back(memoryGuess(guessLanguage.mem) + colour("white"));
+    v[0] = (yearGuess(guessLanguage.releaseYear));
+    v[1] = (levelGuess(guessLanguage.level));
+    v[2] = (implementationGuess(guessLanguage.implementation));
+    v[3] = (parentGuess(guessLanguage.parentLanguage));
+    v[4] = (memoryGuess(guessLanguage.mem) + colour("white"));
     return v;
 }
 

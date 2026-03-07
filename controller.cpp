@@ -24,7 +24,7 @@ void Controller::run() {
         printAns(ans);
 
         if (model.isRight(guess)) {
-                std::cout << "Correct!!\n";
+                std::cout << "\nCorrect!! Thanks for playing!\n";
                 break;
         }
 
@@ -49,7 +49,7 @@ void Controller::printAns(const std::vector<std::string>& v) {
     for (int i = 0; i < 5; i++) {
         std::string color = "";
         std::string res = v[i];
-        
+
         color = res.substr(0, 5);
         res = res.substr(5);
 

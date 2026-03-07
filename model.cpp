@@ -1,10 +1,12 @@
 #include <string>
 #include <vector>
 #include <stdlib.h>
+#include <ctime>
 
 #include "model.h"
 
 Model::Model() {
+    srand(time(0));
     int n = rand() % languages.size();
     answer = languages[n];
 }

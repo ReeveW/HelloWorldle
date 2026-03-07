@@ -1,14 +1,12 @@
 #include <string>
 #include "model.h"
 
-Model::Model()
-{
+Model::Model() {
     // get a random number, and then whatever that number is we use that porgramming language
 }
 
-std::string Model::yearGuess(int year)
-{
-    if(answer.releaseYear == year){
+std::string Model::yearGuess(int year) {
+    if(answer.releaseYear == year) {
         // green
     }else if(answer.releaseYear > year){
         if(answer.releaseYear - 5 > year){
@@ -33,16 +31,18 @@ std::string Model::levelGuess(Level level){
     }
 }
 
-std::string Model::implementationGuess(Implementation implementation){
-
+std::string Model::memoryGuess(MemoryManagement mem) {
+    
 }
 
-std::string Model::memoryGuess(MemoryManagement memoryManagement){
-
+std::string Model::parentGuess(std::string p) {
+    
 }
 
-std::string Model::parentGuess(std::string parentLanguage){
-
+std::string Model::implementationGuess(Implementation i) {
+    
 }
 
-
+std::string Model::guess(std::string language) {
+    
+}

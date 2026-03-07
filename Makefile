@@ -7,9 +7,6 @@ CXXFLAGS = -Wall -g
 # Target executable
 TARGET = main
 
-# For deleting the target
-TARGET_DEL = main.exe
-
 # Source files
 SRCS = main.cpp controller.cpp model.cpp view.cpp
 
@@ -17,7 +14,7 @@ SRCS = main.cpp controller.cpp model.cpp view.cpp
 OBJS = $(SRCS:.cpp=.o)
 
 # Default rule to build and run the executable
-all: $(TARGET) run
+all: $(TARGET)
 
 # Rule to link object files into the target executable
 $(TARGET): $(OBJS)
@@ -27,10 +24,10 @@ $(TARGET): $(OBJS)
 %.o: %.cpp
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
-# Rule to run the executable
+# Run the program
 run: $(TARGET)
-	$(TARGET)
+	./$(TARGET)
 
 # Clean rule to remove generated files
 clean:
-	del $(TARGET_DEL) $(OBJS)
+	rm -f $(TARGET) $(OBJS)

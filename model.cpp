@@ -1,7 +1,9 @@
 #include <string>
 #include "model.h"
 
-Model::Model() {}
+Model::Model() {
+    answer = languages[0];
+}
 
 std::string colour(std::string c){
     if(c == "red"){
@@ -18,37 +20,51 @@ std::string Model::yearGuess(int year) {
     std::string s;
 
     if(answer.releaseYear == year) {
-        s += colour("green") + std::to_string(year);
+        s = colour("green") + std::to_string(year);
     }else if(answer.releaseYear > year){
         if(answer.releaseYear - 5 > year){
-            s += colour("red") + std::to_string(year);
+            s = colour("red") + std::to_string(year);
         }else{
-            s += colour("yellow") + std::to_string(year);
+            s = colour("yellow") + std::to_string(year);
         }
     }else{
         if(answer.releaseYear + 5 < year){
-            s += colour("red") + std::to_string(year);
+            s = colour("red") + std::to_string(year);
         }else{
-            s += colour("yellow") + std::to_string(year);
+            s = colour("yellow") + std::to_string(year);
         }
+    }
+    return s + "\n";
+}
+
+std::string Model::levelGuess(Level level){
+    std::string l, s;
+    if(level == Level::High){
+        l = "High-Level";
+    }else{
+        l = "Low-Level";
+    }
+    if(answer.level == level){
+        s = colour("green") + l;
+    }else{
+        s = colour("red") + l;
     }
     return s;
 }
 
-std::string Model::levelGuess(Level level){
-    if(answer.level == level){
-        //green
-    }else{
-        // red
-    }
-}
-
 std::string Model::memoryGuess(MemoryManagement mem) {
-    if(answer.mem == mem){
-        //green
+    std::string l, s;
+    if(mem == MemoryManagement::GarbageCollected){
+        l = "Garbage Collected";
     }else{
-        //red
+        l = "Manual";
     }
+    if(answer.mem == mem){
+        s = colour("green") + l;
+    }else{
+        s = colour("red") + l;
+    }
+    return s;
 }
 
 std::string Model::parentGuess(ParentLanguage p) {
@@ -57,6 +73,7 @@ std::string Model::parentGuess(ParentLanguage p) {
     }else{
         //red
     }
+    return "";
 }
 
 std::string Model::implementationGuess(Implementation i) {
@@ -67,6 +84,7 @@ std::string Model::implementationGuess(Implementation i) {
     }else{
         //red
     }
+    return "";
 }
 
 std::string Model::guess(std::string guess) {
@@ -93,4 +111,12 @@ bool Model::isValidGuess(std::string guess){
         }
     }
     return false;
+}
+
+bool Model::isRight(std::string guess){
+    if(guess == answer.name){
+        return true;
+    }else{
+        return false;
+    }
 }

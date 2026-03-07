@@ -16,5 +16,6 @@ class Model {
         std::string levelGuess(Level level);
         std::string yearGuess(int year);
         std::string guess(std::string guess);
+        bool isRight(std::string guess);
         bool isValidGuess(std::string guess);
 };

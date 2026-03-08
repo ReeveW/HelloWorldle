@@ -3,40 +3,36 @@
 #include <string>
 #include <vector>
 
-enum class Level
-{
+enum class Level {
     High,
     Low
 };
 
-enum class Implementation
-{
+enum class Implementation {
     Compiled,
     Interpreted,
     Hybrid
 };
 
-enum class MemoryManagement
-{
+enum class MemoryManagement {
     Manual,
     GarbageCollected
 };
 
-enum class ParentLanguage
-{
+enum class ParentLanguage {
     C,
     ABC,
     Java,
 };
 
-struct LanguageData
-{
+struct LanguageData {
     std::string name;
     int releaseYear;
     Level level;
     Implementation implementation;
     ParentLanguage parentLanguage;
     MemoryManagement mem;
+    std::string fact;
 };
 
 extern std::vector<LanguageData> languages;

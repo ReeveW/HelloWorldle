@@ -1,12 +1,16 @@
 #pragma once
-#include "model.h"
-#include "view.h"
+
+#include "Model.h"
+#include "View.h"
 #include <string>
+#include <vector>
 
 class Controller {
     public:
         Controller(Model &model, View &view);
         void run();
+        void printHeader();
+        void printAns(const std::vector<std::string>& v);
 
     private:
         Model &model;

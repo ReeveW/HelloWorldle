@@ -1,9 +1,8 @@
+#include "Model.h"
 #include <string>
 #include <vector>
 #include <stdlib.h>
 #include <ctime>
-
-#include "model.h"
 
 Model::Model() {
     srand(time(0));
@@ -11,12 +10,12 @@ Model::Model() {
     answer = languages[n];
 }
 
-std::string colour(std::string c){
-    if(c == "red"){
+std::string colour(std::string c) {
+    if(c == "red") {
         return "\033[31m";
-    }else if(c == "green"){
+    } else if(c == "green") {
         return "\033[32m";
-    }else if(c == "yellow"){
+    } else if(c == "yellow") {
         return "\033[33m";
     }
     return "\033[0m";
@@ -27,47 +26,47 @@ std::string Model::yearGuess(int year) {
 
     if(answer.releaseYear == year) {
         s = colour("green") + std::to_string(year);
-    }else if(answer.releaseYear > year){
-        if(answer.releaseYear - 5 > year){
+    } else if(answer.releaseYear > year) {
+        if(answer.releaseYear - 5 > year) {
             s = colour("red") + std::to_string(year);
-        }else{
+        } else {
             s = colour("yellow") + std::to_string(year);
         }
-    }else{
-        if(answer.releaseYear + 5 < year){
+    } else {
+        if(answer.releaseYear + 5 < year) {
             s = colour("red") + std::to_string(year);
-        }else{
+        } else {
             s = colour("yellow") + std::to_string(year);
         }
     }
-    return s + " | ";
+    return s;
 }
 
-std::string Model::levelGuess(Level level){
+std::string Model::levelGuess(Level level) {
     std::string l, s;
-    if(level == Level::High){
+    if(level == Level::High) {
         l = "High-Level";
-    }else{
+    }else {
         l = "Low-Level";
     }
-    if(answer.level == level){
+    if(answer.level == level) {
         s = colour("green") + l;
-    }else{
+    } else {
         s = colour("red") + l;
     }
-    return s + " | ";
+    return s;
 }
 
 std::string Model::memoryGuess(MemoryManagement mem) {
     std::string l, s;
-    if(mem == MemoryManagement::GarbageCollected){
+    if(mem == MemoryManagement::GarbageCollected) {
         l = "Garbage Collected";
-    }else{
+    } else {
         l = "Manual";
     }
-    if(answer.mem == mem){
+    if(answer.mem == mem) {
         s = colour("green") + l;
-    }else{
+    } else {
         s = colour("red") + l;
     }
     return s;
@@ -75,42 +74,42 @@ std::string Model::memoryGuess(MemoryManagement mem) {
 
 std::string Model::parentGuess(ParentLanguage p) {
     std::string l, s;
-    if(p == ParentLanguage::C){
+    if(p == ParentLanguage::C) {
         l = "C";
-    }else{
+    } else {
         l = "ABC";
     }
-    if(answer.parentLanguage == p){
+    if(answer.parentLanguage == p) {
         s = colour("green") + l;
-    }else{
+    } else {
         s = colour("red") + l;
     }
-    return s + " | ";
+    return s;
 }
 
 std::string Model::implementationGuess(Implementation i) {
     std::string l, s;
-    if(i == Implementation::Compiled){
+    if(i == Implementation::Compiled) {
         l = "Compiled";
-    }else if(i == Implementation::Hybrid){
+    } else if(i == Implementation::Hybrid) {
         l = "Hybrid";
-    }else{
+    } else {
         l = "Interpreted";
     }
-    if(answer.implementation == i){
+    if(answer.implementation == i) {
         s = colour("green") + l;
-    }else if(answer.implementation == Implementation::Hybrid){
+    } else if(answer.implementation == Implementation::Hybrid) {
         s = colour("yellow") + l;
-    }else{
+    } else {
         s = colour("red") + l;
     }
-    return s + " | ";
+    return s;
 }
 
 std::vector<std::string> Model::guess(std::string guess) {
     LanguageData guessLanguage;
-    for(auto l : languages){
-        if(l.name == guess){
+    for(auto l : languages) {
+        if(l.name == guess) {
             guessLanguage = l;
         }
     }
@@ -123,7 +122,7 @@ std::vector<std::string> Model::guess(std::string guess) {
     return v;
 }
 
-bool Model::isValidGuess(std::string guess){
+bool Model::isValidGuess(std::string guess) {
     for(auto l : languages){
         if(l.name == guess){
             return true;
@@ -132,10 +131,14 @@ bool Model::isValidGuess(std::string guess){
     return false;
 }
 
-bool Model::isRight(std::string guess){
+bool Model::isRight(std::string guess) {
     if(guess == answer.name){
         return true;
-    }else{
+    } else { 
         return false;
     }
+}
+
+std::string Model::getFact() {
+    return answer.fact;
 }

@@ -1,5 +1,6 @@
 #pragma once
-#include "model.h"
+
+#include "Model.h"
 #include <string>
 
 class View {

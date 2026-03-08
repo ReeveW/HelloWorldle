@@ -49,8 +49,8 @@ void View::printAns(const std::vector<std::string>& v) {
 }
 
 void View::start() {
-    std::cout << "\nWelcome to Howardle! A -dle style game for programming languages!\n";
-    std::cout << std::endl;
+    std::cout << "\nWelcome to Hello Worldle! A -dle style game for programming languages!\n\n";
+    std::cout << "Language Bank: C, C++, Python, Javascript, Objective-C, Typescript\n\n\n";
 }
 
 void View::errorMess() {
@@ -59,5 +59,5 @@ void View::errorMess() {
 }
 
 void View::winMess(std::string fact) {
-    std::cout << "\nCorrect!!\n\nFun Fact: " << fact << "\nThanks for playing!!\n\n";
+    std::cout << "\nCorrect!!\n\nFun Fact: " << fact << "\n\n";
 }

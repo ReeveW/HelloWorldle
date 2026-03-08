@@ -76,8 +76,12 @@ std::string Model::parentGuess(ParentLanguage p) {
     std::string l, s;
     if(p == ParentLanguage::C) {
         l = "C";
-    } else {
+    } else if(p == ParentLanguage::ABC){
         l = "ABC";
+    }else if(p == ParentLanguage::Java){
+        l = "Java";
+    }else {
+        l = "None";
     }
     if(answer.parentLanguage == p) {
         s = colour("green") + l;

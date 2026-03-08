@@ -23,6 +23,8 @@ enum class ParentLanguage {
     C,
     ABC,
     Java,
+    None,
+    B,
 };
 
 struct LanguageData {

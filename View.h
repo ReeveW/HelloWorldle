@@ -10,5 +10,5 @@ class View {
         void printAns(const std::vector<std::string>& v);
         void start();
         void errorMess();
-        //void winMess();
+        void winMess(std::string fact);
 };

@@ -10,6 +10,7 @@ std::string View::ask() {
     std::getline(std::cin, input);
     std::transform(input.begin(), input.end(), input.begin(), 
         [](unsigned char c){ return std::tolower(c); });
+    std::cout << std::endl;
     return input;
 }
 
@@ -44,15 +45,19 @@ void View::printAns(const std::vector<std::string>& v) {
         if (i < 4) std::cout << " | ";
     }
 
-    std::cout << std::endl;
+    std::cout << "\n\n";
 }
 
 void View::start() {
-    std::cout << "Welcome to Howardle! A -dle style game for programming languages!\n";
+    std::cout << "\nWelcome to Howardle! A -dle style game for programming languages!\n";
     std::cout << std::endl;
 }
 
 void View::errorMess() {
-    std::cout << "Invalid Language Guess.\nPlease choose between C++ and Python.\n";
+    std::cout << "Invalid Language Guess.\nPlease choose between C, C++, Python, Javascript, Objective-C, and Typescript.\n\n";
     std::cout << std::endl;
+}
+
+void View::winMess(std::string fact) {
+    std::cout << "\nCorrect!!\n\nFun Fact: " << fact << "\nThanks for playing!!\n\n";
 }

@@ -10,6 +10,14 @@ Model::Model() {
     answer = languages[n];
 }
 
+// this method is for testing purposes only
+Model::Model(int l) {
+    if(l >= languages.size() || l < 0){
+        answer = languages[0];
+    }
+    answer = languages[l];
+}
+
 std::string colour(std::string c) {
     if(c == "red") {
         return "\033[31m";

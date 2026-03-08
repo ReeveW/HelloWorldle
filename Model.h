@@ -8,6 +8,7 @@ class Model {
         LanguageData answer;
     public:
         Model();
+        Model(int l);
         ~Model() = default;
         std::string memoryGuess(MemoryManagement mem);
         std::string parentGuess(ParentLanguage p);

@@ -20,9 +20,8 @@ void Controller::run() {
         view.printAns(ans);
 
         if (model.isRight(guess)) {
-                std::cout << "\nCorrect!!\n";
-                std::cout << "Fun Fact: " << model.getFact() << "Thanks for playing!\n";
-                break;
+            view.winMess(model.getFact());
+            break;
         }
 
         std::cout << std::endl;
